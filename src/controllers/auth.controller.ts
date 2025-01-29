@@ -67,6 +67,12 @@ export default {
   },
 
   async login(req: Request, res: Response) {
+    /**
+     #swagger.requestBody ={
+     required: true,
+     schema: {$ref: "#/components/schemas/LoginRequest"}
+     }
+     */
     try {
       // Ambil data user berdasarkan indentifier -> email dan username
 
@@ -119,15 +125,20 @@ export default {
   },
 
   async me(req: IReqUser, res: Response) {
+    /**
+     #swagger.security =[{
+      "bearerAuth": []
+     }]
+     */
     try {
-        const user = req.user
+      const user = req.user;
 
-        const result = await UserModel.findById(user?.id);
+      const result = await UserModel.findById(user?.id);
 
-        res.status(200).json({
-            message: "Success Get User Profile",
-            data: result,
-        })
+      res.status(200).json({
+        message: "Success Get User Profile",
+        data: result,
+      });
     } catch (error) {
       const err = error as unknown as Error;
       // jika validasi gagal maka kirim response status 400 / bad request dengan message error
