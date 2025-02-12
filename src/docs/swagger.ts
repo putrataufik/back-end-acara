@@ -28,6 +28,16 @@ const doc = {
                 identifier: "putrataufik",
                 password:"12345678",
             },
+            RegisterRequest:{
+                fullName: "Putra Taufik",
+                userName: "putrataufik",
+                email: "putrataufik@gmail.com",
+                password: "12345678",
+                confirmPassword: "12345678",
+            },
+            ActivationRequest: {
+                code: "abcdef"
+            }
         },
     },
 };
